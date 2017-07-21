@@ -4,10 +4,21 @@
     <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
     <string name="navigation_drawer_close">Fermer le menu de navigation</string>
 
+    <!-- Strings du Navigation Drawer-->
+    <string name="music_list">Liste des musiques</string>
+    <string name="artist_list">Liste des artistes</string>
+    <string name="search">Recherche</string>
+    <string name="playlist">Playlist</string>
+    <string name="folders">Dossiers</string>
+    <string name="report_bug">Reporter un bug ou une fonctionnalité manquante</string>
+
 
     <string name="action_settings">Paramètres</string>
     <string name="pref_music">Musique</string>
 
     <string name="next_music_pref">Prochaine musique à lancer</string>
     <string name="random_already_listened_pref">En mode aléatoire, exclure les musiques déjà écoutées</string>
+
+
+
 </resources>
