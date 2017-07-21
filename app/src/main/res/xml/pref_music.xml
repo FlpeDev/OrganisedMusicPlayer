@@ -1,0 +1,14 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:title="@string/next_music_pref"
+        android:key="next_music_pref"
+        android:defaultValue="Random"
+        android:entries="@array/next_music_played_choice_readable"
+        android:entryValues="@array/next_music_played_choice" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="random_already_listened_pref"
+        android:title="@string/random_already_listened_pref" />
+
+</PreferenceScreen>

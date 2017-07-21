@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Settings -->
+    <string-array name="next_music_played_choice_readable" >
+        <item>Random</item>
+        <item>Next in alphabetical order</item>
+    </string-array>
+
+    <string-array name="next_music_played_choice" >
+        <item>Random</item>
+        <item>Next in alphabetical order</item>
+    </string-array>
+</resources>
