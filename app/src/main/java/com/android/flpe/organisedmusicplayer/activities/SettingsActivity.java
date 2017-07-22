@@ -1,4 +1,4 @@
-package com.android.flpe.organisedmusicplayer;
+package com.android.flpe.organisedmusicplayer.activities;
 
 
 import android.annotation.TargetApi;
@@ -20,6 +20,8 @@ import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
+
+import com.android.flpe.organisedmusicplayer.R;
 
 import java.util.List;
 

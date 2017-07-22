@@ -1,4 +1,4 @@
-package com.android.flpe.organisedmusicplayer;
+package com.android.flpe.organisedmusicplayer.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

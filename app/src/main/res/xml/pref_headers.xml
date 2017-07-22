@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.android.flpe.organisedmusicplayer.SettingsActivity$MusicPreferenceFragment"
+        android:fragment="com.android.flpe.organisedmusicplayer.activities.SettingsActivity$MusicPreferenceFragment"
         android:icon="@drawable/ic_music"
         android:title="@string/pref_music" />
 
     <!--<header
-        android:fragment="com.android.flpe.organisedmusicplayer.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="com.android.flpe.organisedmusicplayer.activities.SettingsActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.android.flpe.organisedmusicplayer.SettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="com.android.flpe.organisedmusicplayer.activities.SettingsActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />-->
 
