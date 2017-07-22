@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_music_list"
+        layout="@layout/main_activity_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_music_list"
-        app:menu="@menu/activity_music_list_drawer" />
+        app:headerLayout="@layout/main_activity_navigation_drawer_header"
+        app:menu="@menu/left_menu" />
 
 </android.support.v4.widget.DrawerLayout>

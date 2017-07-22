@@ -12,7 +12,7 @@
     <string name="search">Search</string>
     <string name="playlist">Playlists</string>
     <string name="folders">Folders</string>
-    <string name="report_bug">Report a bug or a missing functionality</string>
+    <string name="report_bug">Contact the developer</string>
 
     <!-- Android generated strings-->
      <string name="pref_ringtone_silent">Silent</string>

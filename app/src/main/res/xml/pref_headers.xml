@@ -4,7 +4,7 @@
 
     <header
         android:fragment="com.android.flpe.organisedmusicplayer.SettingsActivity$MusicPreferenceFragment"
-        android:icon="@drawable/ic_info_black_24dp"
+        android:icon="@drawable/ic_music"
         android:title="@string/pref_music" />
 
     <!--<header
