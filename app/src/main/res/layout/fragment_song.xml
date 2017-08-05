@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    tools:context="com.android.flpe.organisedmusicplayer.fragments.SongFragment"
+    android:background="@drawable/song_border">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/image_associated_with_the_song"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/ic_headphone"
+        android:id="@+id/casque"/>
+
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:text="12:00"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/hour"
+        android:textColor="#FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/center_infos"
+        android:layout_toStartOf="@id/hour"
+        android:layout_toLeftOf="@id/hour"
+        android:layout_toEndOf="@id/casque"
+        android:layout_toRightOf="@id/casque">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Titre"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:id="@+id/title"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Artiste"
+            android:textColor="#FFFFFF"
+            android:id="@+id/artist"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Remix"
+            android:textColor="#FFFFFF"
+            android:id="@+id/remix"/>
+    </LinearLayout>
+
+</RelativeLayout>

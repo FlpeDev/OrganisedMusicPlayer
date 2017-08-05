@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Strings servant aux aveugles -->
+    <!-- Strings for blind people -->
     <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
     <string name="navigation_drawer_close">Fermer le menu de navigation</string>
+    <string name="image_associated_with_the_song">Image associée à la musique</string>
 
-    <!-- Strings du Navigation Drawer-->
+    <!-- Strings of Navigation Drawer-->
     <string name="music_list">Liste des musiques</string>
     <string name="artist_list">Liste des artistes</string>
     <string name="search">Recherche</string>
@@ -13,9 +14,9 @@
     <string name="report_bug">Contacter le développeur</string>
 
 
+    <!-- Strings related to settings-->
     <string name="action_settings">Paramètres</string>
     <string name="pref_music">Musique</string>
-
     <string name="next_music_pref">Prochaine musique à lancer</string>
     <string name="random_already_listened_pref">En mode aléatoire, exclure les musiques déjà écoutées</string>
 

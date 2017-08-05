@@ -23,12 +23,14 @@ import com.android.flpe.organisedmusicplayer.fragments.FolderFragment;
 import com.android.flpe.organisedmusicplayer.fragments.MusicsFragment;
 import com.android.flpe.organisedmusicplayer.fragments.PlaylistFragment;
 import com.android.flpe.organisedmusicplayer.fragments.SearchFragment;
+import com.android.flpe.organisedmusicplayer.fragments.SongFragment;
+import com.android.flpe.organisedmusicplayer.models.Song;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MusicsFragment.OnFragmentInteractionListener,
         ArtistsFragment.OnFragmentInteractionListener, SearchFragment.OnFragmentInteractionListener,
         PlaylistFragment.OnFragmentInteractionListener, FolderFragment.OnFragmentInteractionListener,
-        ContactFragment.OnFragmentInteractionListener{
+        ContactFragment.OnFragmentInteractionListener, SongFragment.OnFragmentInteractionListener{
 
     private static final String FRAGMENT_KEY = "idFragment";
 

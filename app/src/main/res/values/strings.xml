@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Organised Music Player</string>
+    <string name="mail_address">flpe_dev@gmail.com</string>
 
 
-    <!-- Strings servant aux aveugles -->
+    <!-- Strings for blind people -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="image_associated_with_the_song">Image associated with the song</string>
 
-    <!-- Strings du Navigation Drawer-->
+    <!-- Strings of Navigation Drawer-->
     <string name="music_list">Musics list</string>
     <string name="artist_list">Artists list</string>
     <string name="search">Search</string>
@@ -14,8 +16,7 @@
     <string name="folders">Folders</string>
     <string name="report_bug">Contact the developer</string>
 
-    <!-- Android generated strings-->
-    <string name="pref_ringtone_silent">Silent</string>
+
 
     <!-- Strings related to settings-->
     <string name="action_settings">Settings</string>
@@ -24,5 +25,6 @@
     <string name="random_already_listened_pref">In random mode, exclude already listened musics</string>
 
 
-    <string name="mail_address">flpe_dev@gmail.com</string>
+    <!-- Android generated strings-->
+    <string name="pref_ringtone_silent">Silent</string>
 </resources>

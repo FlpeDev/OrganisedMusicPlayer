@@ -4,12 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.flpe.organisedmusicplayer.R;
 import com.android.flpe.organisedmusicplayer.models.Song;
@@ -17,22 +18,22 @@ import com.android.flpe.organisedmusicplayer.models.Song;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MusicsFragment.OnFragmentInteractionListener} interface
+ * {@link SongFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MusicsFragment#newInstance} factory method to
+ * Use the {@link SongFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MusicsFragment extends Fragment {
-    /*private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";*/
+public class SongFragment extends Fragment {
+    private static final String ARG_SONG = "SONG";
+    private Song song;
+    private View root;
 
     /*private String mParam1;
     private String mParam2;*/
 
-    private FragmentManager fm = null;
     private OnFragmentInteractionListener mListener;
 
-    public MusicsFragment() {
+    public SongFragment() {
         // Required empty public constructor
     }
 
@@ -40,35 +41,46 @@ public class MusicsFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * //@param param1 Parameter 1.
-     * //@param param2 Parameter 2.
-     * @return A new instance of fragment MusicsFragment.
+     //* @param param1 Parameter 1.
+     //* @param param2 Parameter 2.
+     * @return A new instance of fragment SongFragment.
      */
-    public static MusicsFragment newInstance(/*String param1, String param2*/) {
-        MusicsFragment fragment = new MusicsFragment();
+    public static SongFragment newInstance(Song song) {
+        SongFragment fragment = new SongFragment();
         Bundle args = new Bundle();
-        /*args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);*/
+        args.putParcelable(ARG_SONG, song);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        fm = getActivity().getSupportFragmentManager();
-        createSongList();
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (getArguments() != null) {
+            song = getArguments().getParcelable(ARG_SONG);
+            putInformationOnView();
+        }
     }
 
-    private void createSongList() {
-        Song[] songs = Song.getSongList(getActivity());
+    private void putInformationOnView() {
+        Log.d("gg", "" + (getView() == null));
+        ImageView songIcon = (ImageView) root.findViewById(R.id.casque);
+        TextView nameText = (TextView) root.findViewById(R.id.title);
+        TextView artistText = (TextView) root.findViewById(R.id.artist);
+        TextView remixText = (TextView) root.findViewById(R.id.remix);
+        TextView hourText = (TextView) root.findViewById(R.id.hour);
 
-        for(Song song : songs){
-            fm.beginTransaction().add(R.id.container, SongFragment.newInstance(song)).commit();
+        nameText.setText(song.getName());
+        if(song.getArtists() != null) {
+            artistText.setText(TextUtils.join("", song.getArtists()));
+        }
+        if(song.getRemixArtists() != null) {
+            remixText.setText(TextUtils.join("", song.getRemixArtists()));
+        }
+        hourText.setText(song.getDuration());
+
+        if(song.getImage() != null){
+            songIcon.setImageBitmap(song.getImage());
         }
     }
 
@@ -76,11 +88,11 @@ public class MusicsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_music, container, false);
+        root = inflater.inflate(R.layout.fragment_song, container, false);
+        return root;
     }
 
-    /*TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    /*public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
