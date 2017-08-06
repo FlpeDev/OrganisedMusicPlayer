@@ -1,11 +1,11 @@
 package com.android.flpe.organisedmusicplayer.fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +63,6 @@ public class SongFragment extends Fragment {
     }
 
     private void putInformationOnView() {
-        Log.d("gg", "" + (getView() == null));
         ImageView songIcon = (ImageView) root.findViewById(R.id.casque);
         TextView nameText = (TextView) root.findViewById(R.id.title);
         TextView artistText = (TextView) root.findViewById(R.id.artist);
@@ -79,8 +78,9 @@ public class SongFragment extends Fragment {
         }
         hourText.setText(song.getDuration());
 
-        if(song.getImage() != null){
-            songIcon.setImageBitmap(song.getImage());
+        Bitmap image = song.getImage();
+        if(image != null){
+            songIcon.setImageBitmap(image);
         }
     }
 

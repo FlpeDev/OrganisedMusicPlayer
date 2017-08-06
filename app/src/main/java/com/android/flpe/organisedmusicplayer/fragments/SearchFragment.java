@@ -39,7 +39,7 @@ public class SearchFragment extends Fragment {
      * //@param param2 Parameter 2.
      * @return A new instance of fragment SearchFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    //
     public static SearchFragment newInstance(/*String param1, String param2*/) {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
@@ -65,7 +65,7 @@ public class SearchFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
-    /*TODO: Rename method, update argument and hook method into UI event
+    /*
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

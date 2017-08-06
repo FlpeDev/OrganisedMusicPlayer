@@ -39,7 +39,6 @@ public class ArtistsFragment extends Fragment {
      * //@param param2 Parameter 2.
      * @return A new instance of fragment ArtistsFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ArtistsFragment newInstance(/*String param1, String param2*/) {
         ArtistsFragment fragment = new ArtistsFragment();
         Bundle args = new Bundle();
@@ -65,7 +64,7 @@ public class ArtistsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_artists, container, false);
     }
 
-    /*TODO: Rename method, update argument and hook method into UI event
+    /*
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

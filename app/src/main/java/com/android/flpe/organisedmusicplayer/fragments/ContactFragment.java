@@ -39,7 +39,6 @@ public class ContactFragment extends Fragment {
      * //@param param2 Parameter 2.
      * @return A new instance of fragment ContactFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ContactFragment newInstance(/*String param1, String param2*/) {
         ContactFragment fragment = new ContactFragment();
         Bundle args = new Bundle();
@@ -65,7 +64,7 @@ public class ContactFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_contact, container, false);
     }
 
-    /*TODO: Rename method, update argument and hook method into UI event
+    /*
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

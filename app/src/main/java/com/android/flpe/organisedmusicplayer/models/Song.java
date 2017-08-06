@@ -2,6 +2,7 @@ package com.android.flpe.organisedmusicplayer.models;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,21 +36,10 @@ public class Song implements Parcelable{
     private static final String ARTIST_REGEX = "^(.*) (?:featuring|Featuring|feat|feat.|Feat|Feat.|ft|ft.|Ft|Ft.|f.|F.) (.*)$";
 
     private Song(String dataString, String titleString, String artistString, String durationString){
-        Log.d("ff",dataString);
-        Log.d("ff",titleString);
-        Log.d("ff",artistString);
-        Log.d("ff","\n");
-
         path = dataString;
-        duration = durationString;
+        getDuration(durationString);
         getNameAndRemix(titleString);
         getArtists(artistString);
-
-        Log.d("ff",name);
-        Log.d("ff", Arrays.toString(artists));
-        Log.d("ff",Arrays.toString(featuredArtists));
-        Log.d("ff",Arrays.toString(remixArtists));
-        Log.d("ff","\n\n\n");
     }
 
     protected Song(Parcel in) {
@@ -84,6 +74,13 @@ public class Song implements Parcelable{
             artists = artistString.split("&");
             featuredArtists = null;
         }
+    }
+
+    private void getDuration(String durationString) {
+        int durationInSeconds = Integer.parseInt(durationString)/1000;
+        int nbOfMinutes = durationInSeconds/60;
+        int nbOfSeconds = durationInSeconds - 60*nbOfMinutes;
+        duration = nbOfMinutes + ":" + String.format("%02d", nbOfSeconds);
     }
 
     private void getNameAndRemix(String titleString){
