@@ -5,14 +5,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.android.flpe.organisedmusicplayer.R;
 import com.android.flpe.organisedmusicplayer.models.Song;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +32,8 @@ public class MusicsFragment extends Fragment {
 
     private FragmentManager fm = null;
     private OnFragmentInteractionListener mListener;
+    private View root;
+    private List<SongFragment> songFragments;
 
     public MusicsFragment() {
         // Required empty public constructor
@@ -66,17 +69,35 @@ public class MusicsFragment extends Fragment {
 
     private void createSongList() {
         Song[] songs = Song.getSongList(getActivity());
+        songFragments = new ArrayList<>();
 
         for(Song song : songs){
-            fm.beginTransaction().add(R.id.container, SongFragment.newInstance(song)).commit();
+            SongFragment fragment = SongFragment.newInstance(song);
+            songFragments.add(fragment);
+            fm.beginTransaction().add(R.id.container, fragment).commit();
         }
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Thread iconThread = new Thread() {
+            @Override
+            public void run() {
+                for(SongFragment fragment : songFragments){
+                    fragment.putIconOnView();
+                }
+            }
+        };
+        iconThread.start();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_music, container, false);
+        root = inflater.inflate(R.layout.fragment_music, container, false);
+        return root;
     }
 
     /*

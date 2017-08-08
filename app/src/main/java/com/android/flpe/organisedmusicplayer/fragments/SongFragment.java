@@ -28,9 +28,6 @@ public class SongFragment extends Fragment {
     private Song song;
     private View root;
 
-    /*private String mParam1;
-    private String mParam2;*/
-
     private OnFragmentInteractionListener mListener;
 
     public SongFragment() {
@@ -54,16 +51,14 @@ public class SongFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             song = getArguments().getParcelable(ARG_SONG);
-            putInformationOnView();
         }
     }
 
     private void putInformationOnView() {
-        ImageView songIcon = (ImageView) root.findViewById(R.id.casque);
         TextView nameText = (TextView) root.findViewById(R.id.title);
         TextView artistText = (TextView) root.findViewById(R.id.artist);
         TextView remixText = (TextView) root.findViewById(R.id.remix);
@@ -77,10 +72,26 @@ public class SongFragment extends Fragment {
             remixText.setText(TextUtils.join("", song.getRemixArtists()));
         }
         hourText.setText(song.getDuration());
+    }
 
-        Bitmap image = song.getImage();
+    public void putIconOnView(){ //called in an other thread (in MusicsFragment)
+        final ImageView[] songIcon = new ImageView[1];
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                songIcon[0] = (ImageView) root.findViewById(R.id.casque);
+            }
+        });
+
+        final Bitmap image = song.getImage();
+
         if(image != null){
-            songIcon.setImageBitmap(image);
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    songIcon[0].setImageBitmap(image);
+                }
+            });
         }
     }
 
@@ -89,6 +100,7 @@ public class SongFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_song, container, false);
+        putInformationOnView();
         return root;
     }
 
